@@ -26,7 +26,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center px-6"
+          className="relative z-10 w-full max-w-7xl mx-auto px-10 sm:px-16"
         >
           <h1
             className="text-7xl sm:text-8xl md:text-9xl font-normal tracking-tight leading-none"

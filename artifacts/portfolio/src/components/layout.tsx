@@ -1,10 +1,10 @@
 import { Link, useLocation } from "wouter";
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Layout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [navVisible, setNavVisible] = useState(false);
 
   const links = [
     { href: "/", label: "Home" },
@@ -14,23 +14,11 @@ export function Layout({ children }: { children: ReactNode }) {
     { href: "/contact", label: "Contact" },
   ];
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location]);
-
   return (
     <div className="min-h-[100dvh] flex flex-col selection:bg-foreground selection:text-background">
       <header className="sticky top-0 z-50 w-full bg-[#1a1a1a]">
         <div className="mx-auto max-w-7xl px-6 sm:px-10 flex h-16 items-center justify-between">
+
           <Link
             href="/"
             className="flex items-center justify-center w-10 h-10 rounded-full border border-white/40 text-white text-sm font-semibold tracking-wider hover:border-white transition-colors select-none"
@@ -39,116 +27,64 @@ export function Layout({ children }: { children: ReactNode }) {
             na
           </Link>
 
-          <div className="flex items-center gap-10">
-            <nav className="hidden md:flex gap-8" data-testid="nav-desktop">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                  className={`text-sm tracking-wide relative py-1 overflow-hidden group transition-colors ${
-                    location === link.href
-                      ? "text-white"
-                      : "text-white/60 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ${
-                      location === link.href
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
-                </Link>
-              ))}
-            </nav>
-
-            <button
-              className="flex flex-col gap-[5px] p-2"
-              onClick={() => setMenuOpen((o) => !o)}
-              aria-label="Toggle menu"
-              data-testid="button-menu"
-            >
-              <span
-                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
-                  menuOpen ? "translate-y-[7.5px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-opacity duration-300 ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
-                  menuOpen ? "-translate-y-[7.5px] -rotate-45" : ""
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-40 bg-black/50"
-              onClick={() => setMenuOpen(false)}
-            />
-            <motion.aside
-              key="drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 z-50 h-full w-72 sm:w-96 bg-[#111111] flex flex-col justify-center px-12"
-              data-testid="nav-drawer"
-            >
-              <button
-                className="absolute top-5 right-6 flex flex-col gap-[5px] p-2"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-                data-testid="button-close-menu"
-              >
-                <span className="block w-6 h-[2.5px] bg-[#00ff9d] translate-y-[7.5px] rotate-45" />
-                <span className="block w-6 h-[2.5px] bg-[#00ff9d] opacity-0" />
-                <span className="block w-6 h-[2.5px] bg-[#00ff9d] -translate-y-[7.5px] -rotate-45" />
-              </button>
-
-              <nav className="flex flex-col gap-8">
-                {links.map((link, i) => (
+          <div
+            className="flex items-center gap-8 cursor-pointer"
+            onMouseEnter={() => setNavVisible(true)}
+            onMouseLeave={() => setNavVisible(false)}
+            onClick={() => setNavVisible((v) => !v)}
+            data-testid="nav-hover-zone"
+          >
+            <div className="flex items-center gap-8 overflow-hidden">
+              <AnimatePresence>
+                {navVisible && links.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: 24 }}
+                    initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 16 }}
-                    transition={{ duration: 0.35, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    exit={{ opacity: 0, x: 40 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: (links.length - 1 - i) * 0.055,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    style={{ whiteSpace: "nowrap" }}
                   >
                     <Link
                       href={link.href}
-                      data-testid={`link-drawer-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      className={`text-3xl sm:text-4xl font-normal tracking-tight transition-opacity block ${
+                      data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className={`text-sm tracking-wide relative py-1 group transition-colors block ${
                         location === link.href
                           ? "text-white"
-                          : "text-white/40 hover:text-white"
+                          : "text-white/50 hover:text-white"
                       }`}
                     >
                       {link.label}
+                      <span
+                        className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ${
+                          location === link.href
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      />
                     </Link>
                   </motion.div>
                 ))}
-              </nav>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+              </AnimatePresence>
+            </div>
+
+            <div
+              className="flex flex-col gap-[5px] p-2 flex-shrink-0"
+              aria-label="Menu"
+              data-testid="button-menu"
+            >
+              <span className="block w-6 h-[2.5px] bg-[#00ff9d]" />
+              <span className="block w-6 h-[2.5px] bg-[#00ff9d]" />
+              <span className="block w-6 h-[2.5px] bg-[#00ff9d]" />
+            </div>
+          </div>
+        </div>
+      </header>
 
       <main className="flex-1 w-full overflow-x-hidden">
         {children}

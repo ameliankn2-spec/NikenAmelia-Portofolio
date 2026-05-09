@@ -16,7 +16,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-[100dvh] flex flex-col selection:bg-foreground selection:text-background">
-      <header className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
+      <header className="fixed top-4 left-0 right-0 z-50 flex justify-end pr-6 sm:pr-10 pointer-events-none">
         <div
           className="pointer-events-auto flex items-center gap-3 px-3 py-2 rounded-full border border-white/10 shadow-2xl"
           style={{ background: "rgba(20,20,20,0.92)", backdropFilter: "blur(16px)" }}

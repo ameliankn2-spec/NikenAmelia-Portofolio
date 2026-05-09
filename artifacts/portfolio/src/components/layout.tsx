@@ -22,14 +22,6 @@ export function Layout({ children }: { children: ReactNode }) {
           style={{ background: "rgba(20,20,20,0.92)", backdropFilter: "blur(16px)" }}
           data-testid="nav-container"
         >
-          <Link
-            href="/"
-            className="flex items-center justify-center w-9 h-9 rounded-full border border-white/30 text-white text-xs font-semibold tracking-wider hover:border-white transition-colors select-none flex-shrink-0"
-            data-testid="link-logo"
-          >
-            na
-          </Link>
-
           <div
             className="flex items-center overflow-hidden"
             onMouseEnter={() => setHovered(true)}
@@ -37,6 +29,25 @@ export function Layout({ children }: { children: ReactNode }) {
             data-testid="nav-hover-zone"
           >
             <AnimatePresence mode="popLayout">
+              {hovered && (
+                <motion.div
+                  key="logo"
+                  initial={{ opacity: 0, x: 30, width: 0 }}
+                  animate={{ opacity: 1, x: 0, width: "auto" }}
+                  exit={{ opacity: 0, x: 20, width: 0 }}
+                  transition={{ duration: 0.32, delay: links.length * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex-shrink-0 pr-2"
+                >
+                  <Link
+                    href="/"
+                    className="flex items-center justify-center w-9 h-9 rounded-full border border-white/30 text-white text-xs font-semibold tracking-wider hover:border-white transition-colors select-none"
+                    data-testid="link-logo"
+                  >
+                    na
+                  </Link>
+                </motion.div>
+              )}
+
               {hovered && links.map((link, i) => (
                 <motion.div
                   key={link.href}

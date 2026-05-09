@@ -3,13 +3,14 @@ import { PageContainer } from "@/components/page-container";
 import imgKatalog from "@assets/Contoh-katalog-produk-skincare_1778317660552.webp";
 import imgKeranjang from "@assets/image_1778317765452.png";
 import imgCheckout from "@assets/image_1778317809030.png";
+import imgArtikel from "@assets/gambar2-980x551_1778318009312.png";
 
 export default function MoreWork() {
   const works = [
     { title: "Fitur Katalog Produk", category: "Web Development", image: imgKatalog },
     { title: "Sistem Keranjang Belanja", category: "PHP & MySQL", image: imgKeranjang },
     { title: "Halaman Checkout", category: "Web Development", image: imgCheckout },
-    { title: "Artikel Lifestyle & Teknologi", category: "Content Writing", image: null },
+    { title: "Artikel Lifestyle & Teknologi", category: "Content Writing", image: imgArtikel },
     { title: "Desain UI Toko Online", category: "UI/UX Design", image: null },
     { title: "Manajemen Database Produk", category: "SQL / MySQL", image: null },
   ];

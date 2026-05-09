@@ -12,38 +12,28 @@ export default function Home() {
         style={{ height: "100vh" }}
         data-testid="section-hero"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2"
-          style={{ filter: "grayscale(100%)" }}
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
-
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 h-full w-auto object-cover"
-          style={{ filter: "grayscale(100%)", maxWidth: "30%" }}
-        >
-          <source src={videoLeft} type="video/mp4" />
-        </video>
-
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 right-0 h-full w-auto object-cover"
-          style={{ filter: "grayscale(100%)", maxWidth: "30%" }}
-        >
-          <source src={videoRight} type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 flex">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-1/2 object-cover"
+            style={{ filter: "grayscale(100%)" }}
+          >
+            <source src={videoLeft} type="video/mp4" />
+          </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-1/2 object-cover"
+            style={{ filter: "grayscale(100%)" }}
+          >
+            <source src={videoRight} type="video/mp4" />
+          </video>
+        </div>
 
         <div className="absolute inset-0 bg-black/40" />
 

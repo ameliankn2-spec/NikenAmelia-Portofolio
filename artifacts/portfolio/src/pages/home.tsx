@@ -8,6 +8,7 @@ import imgRun2 from "@assets/WhatsApp_Image_2026-05-09_at_14.45.23_1778315871796
 import imgRun3 from "@assets/WhatsApp_Image_2026-05-09_at_14.45.26_1778315870284.jpeg";
 import imgRun4 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.13_1778315868572.jpeg";
 import imgRun5 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.53_1778315867150.jpeg";
+import imgRun6 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.19_1778315990623.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -175,39 +176,32 @@ export default function Home() {
 
       {/* ── IMAGE GRID ── */}
       <section>
-        {/* Row 1: 3 photos */}
+        {/* Row 1: foto 3, 2, 1 (foto 3 jadi pertama) */}
         <div className="grid grid-cols-3">
-          {[imgRun1, imgRun2, imgRun3].map((src, i) => (
+          {[imgRun3, imgRun2, imgRun1].map((src, i) => (
             <div key={i} className="overflow-hidden aspect-square">
-              <img
-                src={src}
-                alt=""
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+              <img src={src} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
             </div>
           ))}
         </div>
-        {/* Row 2: 2 photos + About Me card */}
+        {/* Row 2: 3 foto baru */}
         <div className="grid grid-cols-3">
-          {[imgRun4, imgRun5].map((src, i) => (
+          {[imgRun4, imgRun5, imgRun6].map((src, i) => (
             <div key={i} className="overflow-hidden aspect-square">
-              <img
-                src={src}
-                alt=""
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+              <img src={src} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
             </div>
           ))}
-          <Link
-            href="/about"
-            className="bg-[#1a1a1a] border-t border-l border-white/10 flex flex-col justify-end p-8 hover:bg-[#222] transition-colors group aspect-square"
-          >
-            <span className="text-xs tracking-widest uppercase text-[#00ff9d] mb-3">Tentang Aku</span>
-            <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
-              Pelajari lebih lanjut tentang saya dan apa yang bikin saya semangat.
-            </p>
-          </Link>
         </div>
+        {/* About Me — full-width strip */}
+        <Link
+          href="/about"
+          className="flex items-center justify-between px-10 sm:px-16 py-10 border-t border-white/10 bg-[#161616] hover:bg-[#1e1e1e] transition-colors group"
+        >
+          <span className="text-xs tracking-widest uppercase text-[#00ff9d]">Tentang Aku</span>
+          <p className="text-white/50 text-sm group-hover:text-white/80 transition-colors">
+            Pelajari lebih lanjut tentang saya dan apa yang bikin saya semangat →
+          </p>
+        </Link>
       </section>
 
     </div>

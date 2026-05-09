@@ -100,27 +100,6 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
       </main>
 
-      <footer className="w-full border-t border-border mt-auto">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 py-12 flex justify-between items-center text-sm opacity-60">
-          <span>&copy; {new Date().getFullYear()} Niken Amelia</span>
-          <div className="flex gap-6">
-            <a
-              href="mailto:ameliankn2@gmail.com"
-              className="hover:opacity-100 transition-opacity"
-              data-testid="link-footer-email"
-            >
-              Email
-            </a>
-            <a
-              href="tel:+6208783597232"
-              className="hover:opacity-100 transition-opacity"
-              data-testid="link-footer-phone"
-            >
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

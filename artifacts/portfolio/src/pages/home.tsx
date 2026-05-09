@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { MotionSection } from "@/components/motion-page";
 import { PageContainer } from "@/components/page-container";
+import videoLeft from "@assets/WhatsApp_Video_2026-05-09_at_14.52.53_1778315012465.mp4";
+import videoRight from "@assets/WhatsApp_Video_2026-05-09_at_14.53.19_1778315014877.mp4";
 
 export default function Home() {
   return (
@@ -20,6 +22,29 @@ export default function Home() {
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
+
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 h-full w-auto object-cover"
+          style={{ filter: "grayscale(100%)", maxWidth: "30%" }}
+        >
+          <source src={videoLeft} type="video/mp4" />
+        </video>
+
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 right-0 h-full w-auto object-cover"
+          style={{ filter: "grayscale(100%)", maxWidth: "30%" }}
+        >
+          <source src={videoRight} type="video/mp4" />
+        </video>
+
         <div className="absolute inset-0 bg-black/40" />
 
         <motion.div

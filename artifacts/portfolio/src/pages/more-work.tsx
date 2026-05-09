@@ -1,11 +1,12 @@
 import { MotionPage, MotionSection } from "@/components/motion-page";
 import { PageContainer } from "@/components/page-container";
 import imgKatalog from "@assets/Contoh-katalog-produk-skincare_1778317660552.webp";
+import imgKeranjang from "@assets/image_1778317765452.png";
 
 export default function MoreWork() {
   const works = [
     { title: "Fitur Katalog Produk", category: "Web Development", image: imgKatalog },
-    { title: "Sistem Keranjang Belanja", category: "PHP & MySQL", image: null },
+    { title: "Sistem Keranjang Belanja", category: "PHP & MySQL", image: imgKeranjang },
     { title: "Halaman Checkout", category: "Web Development", image: null },
     { title: "Artikel Lifestyle & Teknologi", category: "Content Writing", image: null },
     { title: "Desain UI Toko Online", category: "UI/UX Design", image: null },

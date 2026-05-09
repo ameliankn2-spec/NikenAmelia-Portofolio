@@ -192,16 +192,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-        {/* About Me — full-width strip */}
-        <Link
-          href="/about"
-          className="flex items-center justify-between px-10 sm:px-16 py-10 border-t border-white/10 bg-[#161616] hover:bg-[#1e1e1e] transition-colors group"
-        >
-          <span className="text-xs tracking-widest uppercase text-[#00ff9d]">Tentang Aku</span>
-          <p className="text-white/50 text-sm group-hover:text-white/80 transition-colors">
-            Pelajari lebih lanjut tentang saya dan apa yang bikin saya semangat →
-          </p>
-        </Link>
       </section>
 
     </div>

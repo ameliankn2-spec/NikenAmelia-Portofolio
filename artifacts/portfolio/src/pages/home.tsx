@@ -15,16 +15,8 @@ export default function Home() {
           loop
           muted
           playsInline
-          className="absolute"
-          style={{
-            filter: "grayscale(100%)",
-            top: "50%",
-            left: "50%",
-            width: "100vh",
-            height: "100vw",
-            transform: "translate(-50%, -50%) rotate(90deg)",
-            objectFit: "cover",
-          }}
+          className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2"
+          style={{ filter: "grayscale(100%)" }}
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>

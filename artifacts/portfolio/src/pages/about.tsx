@@ -8,10 +8,10 @@ export default function About() {
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-normal mb-12 tracking-tight">Hai — Selamat datang!</h1>
           <p className="text-2xl md:text-3xl leading-relaxed mb-12">
-            Aku Niken — siswa Software Engineering & Game Development yang suka bikin sesuatu dari nol, entah itu website, game, atau tulisan di blog.
+            Saya Niken Amelia — siswa jurusan Software Engineering & Game Development di SMK Telekomunikasi Tunas Harapan, Salatiga. Saya gemar membangun sesuatu dari nol, baik itu website, permainan, maupun artikel di blog.
           </p>
           <p className="text-xl md:text-2xl leading-relaxed opacity-70">
-            Aku senang memecahkan masalah dan terus belajar hal baru. Bagiku, teknologi bukan cuma soal kode — tapi tentang bagaimana kita bisa bikin sesuatu yang beneran berguna buat orang lain.
+            Saya menyukai tantangan dalam memecahkan masalah dan selalu berusaha untuk terus berkembang. Bagi saya, teknologi bukan sekadar tentang kode — melainkan tentang bagaimana kita dapat menciptakan sesuatu yang benar-benar bermanfaat bagi orang lain.
           </p>
         </div>
 

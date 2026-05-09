@@ -115,7 +115,7 @@ export default function Home() {
               Niken Amelia — siswa SMK Telekomunikasi Tunas Harapan, Salatiga, jurusan Software Engineering & Game Development.
             </p>
             <p className="text-lg sm:text-xl font-normal leading-relaxed max-w-3xl text-white/60 mt-6">
-              Suka bikin website dari nol, nulis di blog, dan lari marathon. Pernah tinggal di pesantren selama tiga tahun — dari situ belajar disiplin, bahasa Arab, dan cara hidup mandiri.
+              Gemar membangun website, menulis artikel di blog, dan berlari marathon. Pernah menempuh pendidikan di pondok pesantren selama tiga tahun — dari sana tumbuh kedisiplinan, kemampuan berbahasa Arab, dan kemandirian yang menjadi bekal hingga kini.
             </p>
           </Section>
 

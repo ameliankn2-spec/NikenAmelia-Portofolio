@@ -97,26 +97,24 @@ export default function Home() {
         >
           <span className="text-sm tracking-widest uppercase opacity-60 mb-6 block">I'm Niken.</span>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight">
-            I design thoughtful digital experiences & beautiful brand aesthetics.
+            Suka coding, desain, dan bikin hal-hal digital jadi lebih hidup.
           </h2>
         </motion.div>
 
         <div className="mt-48 grid grid-cols-1 md:grid-cols-2 gap-24">
           <MotionSection>
-            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Current</h3>
+            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Sekarang</h3>
             <div className="text-2xl leading-relaxed">
-              <p>GoPro</p>
-              <p className="opacity-60">San Diego, California</p>
+              <p>SMK Telekomunikasi Tunas Harapan</p>
+              <p className="opacity-60">Software Engineering & Game Development</p>
             </div>
           </MotionSection>
 
           <MotionSection delay={0.2}>
-            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Past</h3>
+            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Pengalaman</h3>
             <ul className="text-2xl leading-relaxed space-y-4">
-              <li>Hulu <span className="opacity-60 text-xl ml-2">(LA)</span></li>
-              <li>Huge <span className="opacity-60 text-xl ml-2">(LA)</span></li>
-              <li>Digital Operative <span className="opacity-60 text-xl ml-2">(SD)</span></li>
-              <li>BXC Inc. <span className="opacity-60 text-xl ml-2">(OC)</span></li>
+              <li>Website E-Commerce <span className="opacity-60 text-xl ml-2">(2024–2025)</span></li>
+              <li>Blogger & Konten <span className="opacity-60 text-xl ml-2">(2025)</span></li>
             </ul>
           </MotionSection>
         </div>

@@ -8,10 +8,10 @@ export function Layout({ children }: { children: ReactNode }) {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/case-studies", label: "Case Studies" },
-    { href: "/more-work", label: "More Work" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/case-studies", label: "Proyek" },
+    { href: "/more-work", label: "Karya Lain" },
+    { href: "/about", label: "Tentang" },
+    { href: "/contact", label: "Kontak" },
   ];
 
   return (
@@ -105,22 +105,18 @@ export function Layout({ children }: { children: ReactNode }) {
           <span>&copy; {new Date().getFullYear()} Niken Amelia</span>
           <div className="flex gap-6">
             <a
-              href="https://instagram.com/evanwilliamk"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:ameliankn2@gmail.com"
               className="hover:opacity-100 transition-opacity"
-              data-testid="link-footer-instagram"
+              data-testid="link-footer-email"
             >
-              Instagram
+              Email
             </a>
             <a
-              href="https://linkedin.com/in/evan-kosowski-20a32026"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:+6208783597232"
               className="hover:opacity-100 transition-opacity"
-              data-testid="link-footer-linkedin"
+              data-testid="link-footer-phone"
             >
-              LinkedIn
+              WhatsApp
             </a>
           </div>
         </div>

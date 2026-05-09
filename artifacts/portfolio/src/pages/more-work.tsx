@@ -3,18 +3,18 @@ import { PageContainer } from "@/components/page-container";
 
 export default function MoreWork() {
   const works = [
-    { title: "Agency Portfolio", category: "Web Design" },
-    { title: "E-Commerce Replatform", category: "UX Strategy" },
-    { title: "Brand Identity", category: "Art Direction" },
-    { title: "Mobile App MVP", category: "Product Design" },
-    { title: "Packaging System", category: "Identity" },
-    { title: "Design System", category: "Visual Design" },
+    { title: "Fitur Katalog Produk", category: "Web Development" },
+    { title: "Sistem Keranjang Belanja", category: "PHP & MySQL" },
+    { title: "Halaman Checkout", category: "Web Development" },
+    { title: "Artikel Lifestyle & Teknologi", category: "Content Writing" },
+    { title: "Desain UI Toko Online", category: "UI/UX Design" },
+    { title: "Manajemen Database Produk", category: "SQL / MySQL" },
   ];
 
   return (
     <MotionPage>
       <PageContainer className="pt-24">
-        <h1 className="text-4xl md:text-5xl font-normal mb-24 tracking-tight">More Work</h1>
+        <h1 className="text-4xl md:text-5xl font-normal mb-24 tracking-tight">Hal Lain yang Pernah Dibuat</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
           {works.map((work, i) => (

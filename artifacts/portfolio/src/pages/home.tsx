@@ -123,24 +123,24 @@ export default function Home() {
                 <li>HTML</li>
                 <li>PHP</li>
                 <li>JavaScript</li>
+                <li>SQL / MySQL</li>
               </ul>
             </Section>
 
             <Section>
-              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Database & Desain</h3>
+              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Hobi</h3>
               <ul className="text-white/70 text-sm space-y-2">
-                <li>MySQL</li>
-                <li>UI/UX Design (Dasar)</li>
-                <li>Blogger Platform</li>
+                <li>Marathon & Lari Jarak Jauh</li>
+                <li>Menulis & Blogging</li>
+                <li>Game Development</li>
               </ul>
             </Section>
 
             <Section>
-              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Proyek</h3>
+              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Bahasa</h3>
               <ul className="text-white/70 text-sm space-y-2">
-                <li>Website E-Commerce</li>
-                <li>Katalog & Keranjang Belanja</li>
-                <li>Blog & Artikel Teknologi</li>
+                <li>Arab</li>
+                <li>Inggris</li>
               </ul>
             </Section>
           </div>

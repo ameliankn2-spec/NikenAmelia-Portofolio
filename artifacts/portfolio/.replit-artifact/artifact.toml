@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Evan Kosowski Portfolio"
+title = "Niken Amelia Portfolio"
 version = "1.0.0"
 id = "artifacts/portfolio"
 router = "path"

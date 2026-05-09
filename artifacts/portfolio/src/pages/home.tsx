@@ -112,7 +112,10 @@ export default function Home() {
           <Section className="mb-12">
             <span className="text-xs tracking-widest uppercase text-[#00ff9d] block mb-4">Tentang Aku</span>
             <p className="text-2xl sm:text-3xl md:text-4xl font-normal leading-snug max-w-3xl text-white/90">
-              Saya senang membangun hal-hal digital dari nol — mulai dari website, konten, sampai game. Selalu ingin belajar dan terus berkembang.
+              Niken Amelia — siswa SMK Telekomunikasi Tunas Harapan, Salatiga, jurusan Software Engineering & Game Development.
+            </p>
+            <p className="text-lg sm:text-xl font-normal leading-relaxed max-w-3xl text-white/60 mt-6">
+              Suka bikin website dari nol, nulis di blog, dan lari marathon. Pernah tinggal di pesantren selama tiga tahun — dari situ belajar disiplin, bahasa Arab, dan cara hidup mandiri.
             </p>
           </Section>
 

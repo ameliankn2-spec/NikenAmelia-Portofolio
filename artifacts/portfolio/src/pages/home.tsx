@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       <section
         className="relative w-full flex items-center justify-center bg-[#111111] text-white overflow-hidden"
-        style={{ height: "calc(100vh - 64px)" }}
+        style={{ height: "100vh" }}
         data-testid="section-hero"
       >
         <motion.div

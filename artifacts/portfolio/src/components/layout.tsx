@@ -16,7 +16,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-[100dvh] flex flex-col selection:bg-foreground selection:text-background">
-      <header className="sticky top-0 z-50 w-full bg-[#1a1a1a]">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full">
         <div className="mx-auto max-w-7xl px-6 sm:px-10 flex h-16 items-center justify-between">
 
           <Link
@@ -55,13 +55,13 @@ export function Layout({ children }: { children: ReactNode }) {
                       onClick={(e) => e.stopPropagation()}
                       className={`text-sm tracking-wide relative py-1 group transition-colors block ${
                         location === link.href
-                          ? "text-white"
-                          : "text-white/50 hover:text-white"
+                          ? "text-[#00ff9d]"
+                          : "text-[#00ff9d]/60 hover:text-[#00ff9d]"
                       }`}
                     >
                       {link.label}
                       <span
-                        className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ${
+                        className={`absolute left-0 bottom-0 w-full h-[1px] bg-[#00ff9d] transform origin-left transition-transform duration-300 ${
                           location === link.href
                             ? "scale-x-100"
                             : "scale-x-0 group-hover:scale-x-100"

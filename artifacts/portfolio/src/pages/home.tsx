@@ -6,10 +6,22 @@ export default function Home() {
   return (
     <div>
       <section
-        className="relative w-full flex items-center justify-center bg-[#111111] text-white overflow-hidden"
+        className="relative w-full flex items-center justify-center text-white overflow-hidden"
         style={{ height: "100vh" }}
         data-testid="section-hero"
       >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "grayscale(100%)" }}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
+
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}

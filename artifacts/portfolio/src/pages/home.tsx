@@ -1,124 +1,198 @@
 import { motion } from "framer-motion";
-import { MotionSection } from "@/components/motion-page";
-import { PageContainer } from "@/components/page-container";
+import { Link } from "wouter";
 import videoLeft from "@assets/WhatsApp_Video_2026-05-09_at_14.52.53_1778315012465.mp4";
 import videoCenter from "@assets/WhatsApp_Video_2026-05-09_at_14.52.51_1778313569577.mp4";
 import videoRight from "@assets/WhatsApp_Video_2026-05-09_at_14.53.19_1778315014877.mp4";
+import img1 from "@assets/image_1778309340130.png";
+import img2 from "@assets/image_1778312103136.png";
+import img3 from "@assets/image_1778312870574.png";
+import img4 from "@assets/image_1778313559104.png";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+};
+
+function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   return (
-    <div>
-      <section
-        className="relative w-full flex items-center justify-center text-white overflow-hidden"
-        style={{ height: "100vh" }}
-        data-testid="section-hero"
-      >
+    <div className="bg-[#111] text-white min-h-screen">
+
+      {/* ── HERO ── */}
+      <section className="relative w-full flex items-end overflow-hidden" style={{ height: "100vh" }}>
         <div className="absolute inset-0 flex">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full object-cover"
-            style={{ filter: "grayscale(100%)", width: "33.333%" }}
-          >
+          <video autoPlay loop muted playsInline className="h-full object-cover" style={{ filter: "grayscale(100%)", width: "33.333%" }}>
             <source src={videoLeft} type="video/mp4" />
           </video>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full object-cover"
-            style={{ filter: "grayscale(100%)", width: "33.333%" }}
-          >
+          <video autoPlay loop muted playsInline className="h-full object-cover" style={{ filter: "grayscale(100%)", width: "33.333%" }}>
             <source src={videoCenter} type="video/mp4" />
           </video>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full object-cover"
-            style={{ filter: "grayscale(100%)", width: "33.334%" }}
-          >
+          <video autoPlay loop muted playsInline className="h-full object-cover" style={{ filter: "grayscale(100%)", width: "33.334%" }}>
             <source src={videoRight} type="video/mp4" />
           </video>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-[#111]" />
 
-        <div className="absolute inset-0 bg-black/40" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-7xl mx-auto px-10 sm:px-16"
-        >
-          <h1
-            className="text-7xl sm:text-8xl md:text-9xl font-normal tracking-tight leading-none"
-            data-testid="text-hero-welcome"
+        <div className="relative z-10 w-full px-8 sm:px-16 pb-16">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-7xl sm:text-8xl md:text-[10rem] font-normal tracking-tight leading-none"
           >
             Welcome
-          </h1>
-        </motion.div>
+          </motion.h1>
+        </div>
 
         <motion.a
-          href="#content"
+          href="#info"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors"
-          data-testid="link-scroll-down"
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 hover:text-white/60 transition-colors z-10"
         >
           <motion.svg
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
           >
             <polyline points="6 9 12 15 18 9" />
           </motion.svg>
         </motion.a>
       </section>
 
-      <PageContainer id="content" className="pt-32 lg:pt-48">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl"
-        >
-          <span className="text-sm tracking-widest uppercase opacity-60 mb-6 block">I'm Niken.</span>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight">
-            Suka coding, desain, dan bikin hal-hal digital jadi lebih hidup.
-          </h2>
-        </motion.div>
+      {/* ── THREE COLUMNS ── */}
+      <section id="info" className="border-b border-white/10">
+        <div className="max-w-6xl mx-auto px-8 sm:px-16 py-20 grid grid-cols-1 sm:grid-cols-3 gap-12">
+          <Section>
+            <h2 className="text-xs tracking-widest uppercase text-white/40 mb-4">Sekarang</h2>
+            <p className="text-white text-lg font-normal">SMK Telekomunikasi Tunas Harapan</p>
+            <p className="text-white/50 text-sm mt-1">Software Engineering & Game Dev</p>
+            <p className="text-white/40 text-sm">Salatiga, Jawa Tengah</p>
+          </Section>
 
-        <div className="mt-48 grid grid-cols-1 md:grid-cols-2 gap-24">
-          <MotionSection>
-            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Sekarang</h3>
-            <div className="text-2xl leading-relaxed">
-              <p>SMK Telekomunikasi Tunas Harapan</p>
-              <p className="opacity-60">Software Engineering & Game Development</p>
-            </div>
-          </MotionSection>
+          <Section>
+            <h2 className="text-xs tracking-widest uppercase text-white/40 mb-4">Sebelumnya</h2>
+            <p className="text-white text-lg font-normal">Pondok Modern Darussalam</p>
+            <p className="text-white/50 text-sm mt-1">Boarding School</p>
+            <p className="text-white/40 text-sm">2018 – 2021</p>
+          </Section>
 
-          <MotionSection delay={0.2}>
-            <h3 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Pengalaman</h3>
-            <ul className="text-2xl leading-relaxed space-y-4">
-              <li>Website E-Commerce <span className="opacity-60 text-xl ml-2">(2024–2025)</span></li>
-              <li>Blogger & Konten <span className="opacity-60 text-xl ml-2">(2025)</span></li>
+          <Section>
+            <h2 className="text-xs tracking-widest uppercase text-white/40 mb-4">Keahlian</h2>
+            <ul className="text-white/80 text-sm space-y-1">
+              <li>HTML, PHP, JavaScript</li>
+              <li>SQL / MySQL</li>
+              <li>UI/UX Design</li>
+              <li>Microsoft Office</li>
             </ul>
-          </MotionSection>
+          </Section>
         </div>
-      </PageContainer>
+      </section>
+
+      {/* ── ABOUT + SKILLS ── */}
+      <section className="border-b border-white/10">
+        <div className="max-w-6xl mx-auto px-8 sm:px-16 py-20">
+          <Section className="mb-12">
+            <span className="text-xs tracking-widest uppercase text-[#00ff9d] block mb-4">Tentang Aku</span>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-normal leading-snug max-w-3xl text-white/90">
+              Saya senang membangun hal-hal digital dari nol — mulai dari website, konten, sampai game. Selalu ingin belajar dan terus berkembang.
+            </p>
+          </Section>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mt-12">
+            <Section>
+              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Pemrograman</h3>
+              <ul className="text-white/70 text-sm space-y-2">
+                <li>HTML</li>
+                <li>PHP</li>
+                <li>JavaScript</li>
+              </ul>
+            </Section>
+
+            <Section>
+              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Database & Desain</h3>
+              <ul className="text-white/70 text-sm space-y-2">
+                <li>MySQL</li>
+                <li>UI/UX Design (Dasar)</li>
+                <li>Blogger Platform</li>
+              </ul>
+            </Section>
+
+            <Section>
+              <h3 className="text-xs tracking-widest uppercase text-white/40 mb-4">Proyek</h3>
+              <ul className="text-white/70 text-sm space-y-2">
+                <li>Website E-Commerce</li>
+                <li>Katalog & Keranjang Belanja</li>
+                <li>Blog & Artikel Teknologi</li>
+              </ul>
+            </Section>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT ── */}
+      <section className="border-b border-white/10">
+        <div className="max-w-6xl mx-auto px-8 sm:px-16 py-20">
+          <Section>
+            <span className="text-xs tracking-widest uppercase text-[#00ff9d] block mb-6">Kontak</span>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-normal leading-relaxed text-white/80 max-w-2xl">
+              Bisa hubungi aku lewat email atau WhatsApp kapan saja.{" "}
+              <a
+                href="mailto:ameliankn2@gmail.com"
+                className="text-[#00ff9d] hover:opacity-70 transition-opacity underline decoration-1 underline-offset-4"
+              >
+                ameliankn2@gmail.com
+              </a>
+            </p>
+            <p className="text-xl sm:text-2xl font-normal leading-relaxed text-white/80 mt-4">
+              WhatsApp:{" "}
+              <a
+                href="tel:+6208783597232"
+                className="text-[#00ff9d] hover:opacity-70 transition-opacity underline decoration-1 underline-offset-4"
+              >
+                0878 3539 7232
+              </a>
+            </p>
+          </Section>
+        </div>
+      </section>
+
+      {/* ── IMAGE GRID ── */}
+      <section>
+        <div className="grid grid-cols-2 sm:grid-cols-4" style={{ minHeight: "360px" }}>
+          <div className="overflow-hidden aspect-square">
+            <img src={img1} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+          </div>
+          <div className="overflow-hidden aspect-square">
+            <img src={img2} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+          </div>
+          <div className="overflow-hidden aspect-square">
+            <img src={img3} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+          </div>
+          <Link href="/about" className="bg-[#1a1a1a] border-l border-white/10 flex flex-col justify-end p-8 hover:bg-[#222] transition-colors group aspect-square">
+            <span className="text-xs tracking-widest uppercase text-[#00ff9d] mb-3">Tentang Aku</span>
+            <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+              Pelajari lebih lanjut tentang saya dan apa yang bikin saya semangat.
+            </p>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

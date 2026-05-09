@@ -3,10 +3,11 @@ import { Link } from "wouter";
 import videoLeft from "@assets/WhatsApp_Video_2026-05-09_at_14.52.53_1778315012465.mp4";
 import videoCenter from "@assets/WhatsApp_Video_2026-05-09_at_14.52.51_1778313569577.mp4";
 import videoRight from "@assets/WhatsApp_Video_2026-05-09_at_14.53.19_1778315014877.mp4";
-import img1 from "@assets/image_1778309340130.png";
-import img2 from "@assets/image_1778312103136.png";
-import img3 from "@assets/image_1778312870574.png";
-import img4 from "@assets/image_1778313559104.png";
+import imgRun1 from "@assets/WhatsApp_Image_2026-05-09_at_14.45.22_1778315873117.jpeg";
+import imgRun2 from "@assets/WhatsApp_Image_2026-05-09_at_14.45.23_1778315871796.jpeg";
+import imgRun3 from "@assets/WhatsApp_Image_2026-05-09_at_14.45.26_1778315870284.jpeg";
+import imgRun4 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.13_1778315868572.jpeg";
+import imgRun5 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.53_1778315867150.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -174,17 +175,33 @@ export default function Home() {
 
       {/* ── IMAGE GRID ── */}
       <section>
-        <div className="grid grid-cols-2 sm:grid-cols-4" style={{ minHeight: "360px" }}>
-          <div className="overflow-hidden aspect-square">
-            <img src={img1} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-          </div>
-          <div className="overflow-hidden aspect-square">
-            <img src={img2} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-          </div>
-          <div className="overflow-hidden aspect-square">
-            <img src={img3} alt="" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-          </div>
-          <Link href="/about" className="bg-[#1a1a1a] border-l border-white/10 flex flex-col justify-end p-8 hover:bg-[#222] transition-colors group aspect-square">
+        {/* Row 1: 3 photos */}
+        <div className="grid grid-cols-3">
+          {[imgRun1, imgRun2, imgRun3].map((src, i) => (
+            <div key={i} className="overflow-hidden aspect-square">
+              <img
+                src={src}
+                alt=""
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+          ))}
+        </div>
+        {/* Row 2: 2 photos + About Me card */}
+        <div className="grid grid-cols-3">
+          {[imgRun4, imgRun5].map((src, i) => (
+            <div key={i} className="overflow-hidden aspect-square">
+              <img
+                src={src}
+                alt=""
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+          ))}
+          <Link
+            href="/about"
+            className="bg-[#1a1a1a] border-t border-l border-white/10 flex flex-col justify-end p-8 hover:bg-[#222] transition-colors group aspect-square"
+          >
             <span className="text-xs tracking-widest uppercase text-[#00ff9d] mb-3">Tentang Aku</span>
             <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
               Pelajari lebih lanjut tentang saya dan apa yang bikin saya semangat.

@@ -88,7 +88,7 @@ export default function About() {
           <MotionSection delay={0.1}>
             <h2 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Bahasa</h2>
             <ul className="space-y-3 text-lg">
-              <li>Indonesia</li>
+              <li>Arab</li>
               <li>Inggris</li>
             </ul>
           </MotionSection>

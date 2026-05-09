@@ -92,39 +92,61 @@ export function Layout({ children }: { children: ReactNode }) {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            key="overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#111111] flex flex-col items-center justify-center"
-            data-testid="nav-overlay"
-          >
-            <nav className="flex flex-col items-center gap-10">
-              {links.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12 }}
-                  transition={{ duration: 0.35, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <Link
-                    href={link.href}
-                    data-testid={`link-overlay-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                    className={`text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight transition-opacity ${
-                      location === link.href
-                        ? "text-white"
-                        : "text-white/40 hover:text-white"
-                    }`}
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-40 bg-black/50"
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.aside
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-0 right-0 z-50 h-full w-72 sm:w-96 bg-[#111111] flex flex-col justify-center px-12"
+              data-testid="nav-drawer"
+            >
+              <button
+                className="absolute top-5 right-6 flex flex-col gap-[5px] p-2"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                data-testid="button-close-menu"
+              >
+                <span className="block w-6 h-[2.5px] bg-[#00ff9d] translate-y-[7.5px] rotate-45" />
+                <span className="block w-6 h-[2.5px] bg-[#00ff9d] opacity-0" />
+                <span className="block w-6 h-[2.5px] bg-[#00ff9d] -translate-y-[7.5px] -rotate-45" />
+              </button>
+
+              <nav className="flex flex-col gap-8">
+                {links.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 16 }}
+                    transition={{ duration: 0.35, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
+                    <Link
+                      href={link.href}
+                      data-testid={`link-drawer-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                      className={`text-3xl sm:text-4xl font-normal tracking-tight transition-opacity block ${
+                        location === link.href
+                          ? "text-white"
+                          : "text-white/40 hover:text-white"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
 

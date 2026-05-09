@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MotionSection } from "@/components/motion-page";
 import { PageContainer } from "@/components/page-container";
 import videoLeft from "@assets/WhatsApp_Video_2026-05-09_at_14.52.53_1778315012465.mp4";
+import videoCenter from "@assets/WhatsApp_Video_2026-05-09_at_14.52.51_1778313569577.mp4";
 import videoRight from "@assets/WhatsApp_Video_2026-05-09_at_14.53.19_1778315014877.mp4";
 
 export default function Home() {
@@ -18,8 +19,8 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="h-full w-1/2 object-cover"
-            style={{ filter: "grayscale(100%)" }}
+            className="h-full object-cover"
+            style={{ filter: "grayscale(100%)", width: "33.333%" }}
           >
             <source src={videoLeft} type="video/mp4" />
           </video>
@@ -28,8 +29,18 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="h-full w-1/2 object-cover"
-            style={{ filter: "grayscale(100%)" }}
+            className="h-full object-cover"
+            style={{ filter: "grayscale(100%)", width: "33.333%" }}
+          >
+            <source src={videoCenter} type="video/mp4" />
+          </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full object-cover"
+            style={{ filter: "grayscale(100%)", width: "33.334%" }}
           >
             <source src={videoRight} type="video/mp4" />
           </video>

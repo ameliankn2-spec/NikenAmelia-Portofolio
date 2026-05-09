@@ -4,6 +4,7 @@ import imgKatalog from "@assets/Contoh-katalog-produk-skincare_1778317660552.web
 import imgKeranjang from "@assets/image_1778317765452.png";
 import imgCheckout from "@assets/image_1778317809030.png";
 import imgArtikel from "@assets/gambar2-980x551_1778318009312.png";
+import imgDesainUI from "@assets/image_1778318145686.png";
 
 export default function MoreWork() {
   const works = [
@@ -11,7 +12,7 @@ export default function MoreWork() {
     { title: "Sistem Keranjang Belanja", category: "PHP & MySQL", image: imgKeranjang },
     { title: "Halaman Checkout", category: "Web Development", image: imgCheckout },
     { title: "Artikel Lifestyle & Teknologi", category: "Content Writing", image: imgArtikel },
-    { title: "Desain UI Toko Online", category: "UI/UX Design", image: null },
+    { title: "Desain UI Toko Online", category: "UI/UX Design", image: imgDesainUI },
     { title: "Manajemen Database Produk", category: "SQL / MySQL", image: null },
   ];
 

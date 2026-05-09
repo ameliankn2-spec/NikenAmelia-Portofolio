@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <MotionPage className="pt-32 lg:pt-48">
       <div className="max-w-4xl">
-        <span className="text-sm tracking-widest uppercase opacity-60 mb-6 block">I'm Evan.</span>
+        <span className="text-sm tracking-widest uppercase opacity-60 mb-6 block">I'm Niken.</span>
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.1] tracking-tight">
           I design thoughtful digital experiences & beautiful brand aesthetics.
         </h1>

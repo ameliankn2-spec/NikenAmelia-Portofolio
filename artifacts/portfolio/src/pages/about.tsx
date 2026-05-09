@@ -6,7 +6,7 @@ export default function About() {
       <div className="max-w-4xl">
         <h1 className="text-5xl md:text-7xl font-normal mb-12 tracking-tight">Hey — You made it.</h1>
         <p className="text-2xl md:text-3xl leading-relaxed mb-12">
-          I'm Evan — an identity + packaging designer turned advertising + web designer turned digital native product designer.
+          I'm Niken — an identity + packaging designer turned advertising + web designer turned digital native product designer.
         </p>
         <p className="text-xl md:text-2xl leading-relaxed opacity-70">
           I'm passionate about designing intuitive software that drives immediate and lasting impact. Through UX strategy, research, and design thinking, we can transform how people interact with products and businesses.

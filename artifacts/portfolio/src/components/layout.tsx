@@ -17,7 +17,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-6 sm:px-12 flex h-24 items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight hover:opacity-70 transition-opacity">
-            Evan Kosowski
+            Niken Amelia
           </Link>
           <nav className="hidden md:flex gap-8">
             {links.map((link) => (
@@ -44,7 +44,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </main>
       <footer className="w-full border-t border-border mt-auto">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 py-12 flex justify-between items-center text-sm opacity-60">
-          <span>&copy; {new Date().getFullYear()} Evan Kosowski</span>
+          <span>&copy; {new Date().getFullYear()} Niken Amelia</span>
           <div className="flex gap-6">
             <a href="https://instagram.com/evanwilliamk" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">Instagram</a>
             <a href="https://linkedin.com/in/evan-kosowski-20a32026" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">LinkedIn</a>

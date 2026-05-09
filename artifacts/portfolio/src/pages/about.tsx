@@ -48,6 +48,30 @@ export default function About() {
 
         <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
           <MotionSection>
+            <h2 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Hobi</h2>
+            <ul className="space-y-4 text-lg">
+              <li>Marathon & Lari Jarak Jauh</li>
+              <li className="opacity-60 text-base">Gosyen Run Salatiga 10K</li>
+              <li className="opacity-60 text-base">Makutarama Salatiga ToleRun</li>
+              <li className="opacity-60 text-base">Ceria Run Community</li>
+              <li className="mt-4">Menulis & Blogging</li>
+              <li>Game Development</li>
+            </ul>
+          </MotionSection>
+
+          <MotionSection delay={0.1}>
+            <h2 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Pencapaian Lari</h2>
+            <ul className="space-y-4 text-lg">
+              <li>Finisher — Indonesia Ceria Run</li>
+              <li>Finisher — Gosyen Run 10K Salatiga</li>
+              <li>Finisher — Makutarama ToleRun 2025</li>
+              <li className="opacity-60 text-base">12,34 km · Pace 8:15/km · 1j 41m</li>
+            </ul>
+          </MotionSection>
+        </div>
+
+        <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
+          <MotionSection>
             <h2 className="text-xs tracking-widest uppercase opacity-40 mb-8 border-b border-border pb-4">Pendidikan</h2>
             <ul className="space-y-6 text-lg">
               <li>

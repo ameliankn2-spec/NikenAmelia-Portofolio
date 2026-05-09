@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Layout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
     { href: "/", label: "Home" },
@@ -12,6 +13,19 @@ export function Layout({ children }: { children: ReactNode }) {
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
 
   return (
     <div className="min-h-[100dvh] flex flex-col selection:bg-foreground selection:text-background">
@@ -25,77 +39,94 @@ export function Layout({ children }: { children: ReactNode }) {
             na
           </Link>
 
-          <nav className="hidden md:flex gap-8" data-testid="nav-desktop">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className={`text-sm tracking-wide relative py-1 overflow-hidden group transition-opacity ${
-                  location === link.href
-                    ? "text-white opacity-100"
-                    : "text-white/60 hover:text-white hover:opacity-100"
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ${
+          <div className="flex items-center gap-10">
+            <nav className="hidden md:flex gap-8" data-testid="nav-desktop">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  className={`text-sm tracking-wide relative py-1 overflow-hidden group transition-colors ${
                     location === link.href
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
+                      ? "text-white"
+                      : "text-white/60 hover:text-white"
                   }`}
-                />
-              </Link>
-            ))}
-          </nav>
+                >
+                  {link.label}
+                  <span
+                    className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ${
+                      location === link.href
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </Link>
+              ))}
+            </nav>
 
-          <button
-            className="md:hidden flex flex-col gap-[5px] p-2 group"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Toggle menu"
-            data-testid="button-mobile-menu"
-          >
-            <span
-              className={`block w-6 h-[2px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
-                mobileOpen ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-[#00ff9d] transition-opacity duration-300 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
-                mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-          </button>
-        </div>
-
-        {mobileOpen && (
-          <nav
-            className="md:hidden bg-[#1a1a1a] border-t border-white/10 px-6 py-6 flex flex-col gap-5"
-            data-testid="nav-mobile"
-          >
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                onClick={() => setMobileOpen(false)}
-                className={`text-base tracking-wide transition-opacity ${
-                  location === link.href
-                    ? "text-white"
-                    : "text-white/50 hover:text-white"
+            <button
+              className="flex flex-col gap-[5px] p-2"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+              data-testid="button-menu"
+            >
+              <span
+                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
+                  menuOpen ? "translate-y-[7.5px] rotate-45" : ""
                 }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        )}
+              />
+              <span
+                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-opacity duration-300 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block w-6 h-[2.5px] bg-[#00ff9d] transition-transform duration-300 origin-center ${
+                  menuOpen ? "-translate-y-[7.5px] -rotate-45" : ""
+                }`}
+              />
+            </button>
+          </div>
+        </div>
       </header>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[#111111] flex flex-col items-center justify-center"
+            data-testid="nav-overlay"
+          >
+            <nav className="flex flex-col items-center gap-10">
+              {links.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 12 }}
+                  transition={{ duration: 0.35, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    href={link.href}
+                    data-testid={`link-overlay-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                    className={`text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight transition-opacity ${
+                      location === link.href
+                        ? "text-white"
+                        : "text-white/40 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="flex-1 w-full overflow-x-hidden">
         {children}
@@ -110,7 +141,7 @@ export function Layout({ children }: { children: ReactNode }) {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-100 transition-opacity"
-              data-testid="link-instagram"
+              data-testid="link-footer-instagram"
             >
               Instagram
             </a>
@@ -119,7 +150,7 @@ export function Layout({ children }: { children: ReactNode }) {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-100 transition-opacity"
-              data-testid="link-linkedin"
+              data-testid="link-footer-linkedin"
             >
               LinkedIn
             </a>

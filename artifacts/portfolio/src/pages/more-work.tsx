@@ -1,14 +1,15 @@
 import { MotionPage, MotionSection } from "@/components/motion-page";
 import { PageContainer } from "@/components/page-container";
+import imgKatalog from "@assets/Contoh-katalog-produk-skincare_1778317660552.webp";
 
 export default function MoreWork() {
   const works = [
-    { title: "Fitur Katalog Produk", category: "Web Development" },
-    { title: "Sistem Keranjang Belanja", category: "PHP & MySQL" },
-    { title: "Halaman Checkout", category: "Web Development" },
-    { title: "Artikel Lifestyle & Teknologi", category: "Content Writing" },
-    { title: "Desain UI Toko Online", category: "UI/UX Design" },
-    { title: "Manajemen Database Produk", category: "SQL / MySQL" },
+    { title: "Fitur Katalog Produk", category: "Web Development", image: imgKatalog },
+    { title: "Sistem Keranjang Belanja", category: "PHP & MySQL", image: null },
+    { title: "Halaman Checkout", category: "Web Development", image: null },
+    { title: "Artikel Lifestyle & Teknologi", category: "Content Writing", image: null },
+    { title: "Desain UI Toko Online", category: "UI/UX Design", image: null },
+    { title: "Manajemen Database Produk", category: "SQL / MySQL", image: null },
   ];
 
   return (
@@ -21,9 +22,17 @@ export default function MoreWork() {
             <MotionSection key={i} delay={i * 0.1}>
               <div className="group cursor-pointer">
                 <div className="aspect-[4/3] bg-secondary mb-6 overflow-hidden flex items-center justify-center">
-                  <span className="opacity-20 font-serif italic text-lg group-hover:scale-110 transition-transform duration-700">
-                    Project
-                  </span>
+                  {work.image ? (
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <span className="opacity-20 font-serif italic text-lg group-hover:scale-110 transition-transform duration-700">
+                      Project
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-2xl font-normal tracking-tight mb-2">{work.title}</h3>
                 <p className="text-sm tracking-widest uppercase opacity-40">{work.category}</p>

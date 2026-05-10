@@ -12,7 +12,7 @@ import imgRun6 from "@assets/WhatsApp_Image_2026-05-09_at_14.50.19_1778315990623
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as any } },
 };
 
 function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {

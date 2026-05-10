@@ -6,7 +6,7 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 const isDev = process.env.NODE_ENV === "development";
 const rawPort = process.env.PORT || "3000";
-const basePath = process.env.BASE_PATH || "/";
+const basePath = process.env.BASE_PATH || (isDev ? "/" : "/NikenAmelia-Portofolio/");
 
 // Only validate PORT for development
 if (isDev) {

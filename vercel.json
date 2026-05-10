@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
   "outputDirectory": "artifacts/portfolio/dist",
   "env": {
     "PORT": "3000",
